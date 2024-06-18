@@ -10,6 +10,7 @@
 		4986A92B2C219DFA00EC285E /* MovieDetails.docc in Sources */ = {isa = PBXBuildFile; fileRef = 4986A92A2C219DFA00EC285E /* MovieDetails.docc */; };
 		4986A9572C219F0100EC285E /* MovieDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4986A9562C219F0100EC285E /* MovieDetailsTests.swift */; };
 		4986A9582C219F0100EC285E /* MovieDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4986A9262C219DFA00EC285E /* MovieDetails.framework */; };
+		49D480B92C21A528001C305B /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 49D480B82C21A528001C305B /* Cartfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +29,7 @@
 		4986A9542C219F0100EC285E /* MovieDetailsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDetailsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4986A9562C219F0100EC285E /* MovieDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsTests.swift; sourceTree = "<group>"; };
 		4986A95E2C219F3A00EC285E /* MovieDetails.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieDetails.xctestplan; sourceTree = "<group>"; };
+		49D480B82C21A528001C305B /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		4986A91C2C219DFA00EC285E = {
 			isa = PBXGroup;
 			children = (
+				49D480B82C21A528001C305B /* Cartfile */,
 				4986A9282C219DFA00EC285E /* MovieDetails */,
 				4986A9552C219F0100EC285E /* MovieDetailsTests */,
 				4986A9272C219DFA00EC285E /* Products */,
@@ -175,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D480B92C21A528001C305B /* Cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
