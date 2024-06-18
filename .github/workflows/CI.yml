@@ -1,0 +1,43 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: CI
+
+# Controls when the action will run.
+# Triggers the workflow on specific pull request events.
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build-and-test"
+  build-and-test:
+    # The type of runner that the job will run on
+    runs-on: macos-13
+
+    timeout-minutes: 10
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7'
+          
+    - name: Install Carthage
+      run: brew install carthage
+      
+    - name: Clean derived data
+      run: rm -rf ~/Library/Developer/Xcode/DerivedData
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_15.1.app
+      
+    - name: Build dependencies for macOS
+      run: carthage bootstrap --use-xcframeworks --platform macOS --cache-builds
+      
+    - name: Build and Test (macOS)
+      run: xcodebuild test -project Source/MovieDetails.xcodeproj -scheme "MovieDetails" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk macosx -destination "platform=macOS" ONLY_ACTIVE_ARCH=YES SWIFT_TREAT_WARNINGS_AS_ERRORS=YES OTHER_SWIFT_FLAGS="-D ED_SKIP_SWIFT_FORMAT"
